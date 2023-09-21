@@ -4,7 +4,7 @@ import "./scroll.css"
 function Scroll() {
     let[page,setpage]=useState(1)
     let[data,setData]=useState([])
-
+   const[error,seterror]=useState(false)
     //Modal show and hide
     const[showmodal,setmodal]=useState(false);
     const[modaldata,setmodaldata]=useState([])
@@ -42,6 +42,7 @@ function Scroll() {
               // mockapi returns first 10 tasks 
             }).catch(error => {
                 console.log(error)
+                seterror(true)
               // handle error
             })
         }
@@ -67,7 +68,12 @@ useEffect(()=>{
     return () => window.removeEventListener("scroll", infiniteScroll);
 },[])
 
-
+if(error){
+  return(
+   <div className='error'><p>Error while fetching data please Refresh!</p></div>
+  )
+ }
+ else{
   return (
     <div className='scroll'>
 
@@ -94,6 +100,10 @@ useEffect(()=>{
     {  showmodal && (<Modal data={modaldata}  parent={()=>showmod} /> )}
   </div>
   )
+ }
+
+
+ 
 }
 
 export default Scroll

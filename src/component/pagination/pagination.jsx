@@ -4,7 +4,7 @@ import Modal from '../modal/modal'
 function Pagination() {
     let[page,setpage]=useState(1)
     let[data,setData]=useState([])
-
+    const[error,seterror]=useState(false)
     // Show or hide Modal
     const[showmodal,setmodal]=useState(false);
     const[modaldata,setmodaldata]=useState([])
@@ -40,6 +40,8 @@ function Pagination() {
                 setData(tasks)
               // mockapi returns first 10 tasks that are not completed
             }).catch(error => {
+                   console.log(error)
+                   seterror(true)
               // handle error
             })
         }
@@ -62,38 +64,46 @@ function Pagination() {
         setpage(page)
     }
 
+    if(error){
+     return(
+      <div className='error'><p>Error while fetching data please Refresh!</p></div>
+     )
+    }
+else{
   return (
 
-  <div className='pagination'>
-
-    <span className='page_btn'>
-        <button onClick={previous}>prev</button>
-        <h2>{page}</h2>
-        <button onClick={next}>Next</button>
-    </span>
-
-    <div className='page_card'>
-        {data.map((item)=>(
-            <div  onClick={()=>moddata(item)}>
-            <div  onClick={()=> 
-                
-                setmodal(true)} className='card' key={item.id} >
-           
-            <img src={item.avatar} alt="error" width="150px" />
-            <div>
-            <p className='name'>{item.name}</p>
-             <p>{item.description}</p>
-            </div>
-            
-
-            </div>
-            </div>
-
-        ))}
+    <div className='pagination'>
+  
+      <span className='page_btn'>
+          <button onClick={previous}>prev</button>
+          <h2>{page}</h2>
+          <button onClick={next}>Next</button>
+      </span>
+  
+      <div className='page_card'>
+          {data.map((item)=>(
+              <div  onClick={()=>moddata(item)}>
+              <div  onClick={()=> 
+                  
+                  setmodal(true)} className='card' key={item.id} >
+             
+              <img src={item.avatar} alt="error" width="150px" />
+              <div>
+              <p className='name'>{item.name}</p>
+               <p>{item.description}</p>
+              </div>
+              
+  
+              </div>
+              </div>
+  
+          ))}
+      </div>
+      {  showmodal && (<Modal data={modaldata}  parent={()=>showmod} /> )}
     </div>
-    {  showmodal && (<Modal data={modaldata}  parent={()=>showmod} /> )}
-  </div>
-  )
+    )
+}
+
 }
 
 export default Pagination
