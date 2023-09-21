@@ -1,0 +1,19 @@
+.home{
+    width:100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+  gap: 100px;
+}
+.links{
+    text-decoration: none;
+    text-align: center;
+    font-size: 30px;
+    width: 180px;
+   
+    padding: 20px;
+    background-color:#272829;
+    color: white;
+    border-radius: 15px;
+}

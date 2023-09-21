@@ -1,0 +1,84 @@
+.modal_main{
+    display: flex;
+ justify-content: center;
+align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 900px;
+    height: 450px;
+    gap: 40px;
+ 
+   
+}
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(226, 226, 226, 0.615);
+}
+.mod_close{
+    position:absolute;
+    top: 180px;
+    right: 320px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.mod_img{
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: contain;
+   
+}
+.mod_txt{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 250px;
+}
+
+.mod_title{
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+.mod_btn{
+    display: flex;
+    gap: 20px;
+}
+.mod_btn button{
+    width: 70px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(59, 59, 59);
+}
+
+@media screen and (max-width:600px){
+
+    .modal_main{
+        flex-direction: column;
+        width: 450px;
+        height: 600px;
+        gap: 10px;
+    }
+    .mod_txt{
+        width: 350px;
+    }
+    .mod_close{
+        right:60px;
+        top:250px
+    }
+}

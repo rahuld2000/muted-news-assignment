@@ -1,0 +1,37 @@
+.page_card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.card{
+    width: 420px;
+    gap: 20px;
+    display: flex;
+    padding: 20px;
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
+    margin: 20px;
+    cursor: pointer;
+}
+.name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.page_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+   padding: 20px;
+}
+
+.page_btn button{
+    width: 60px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
